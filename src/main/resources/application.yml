@@ -7,9 +7,9 @@ spring:
   profiles:
     active: default # 配置文件的版本
   datasource:
-    url: jdbc:mysql://10.10.12.54:3306/uorders
-    username: udinghuo
-    password: AgtY4Fq*AiWX
+    url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 #  jpa:
 #    hibernate:
@@ -23,7 +23,7 @@ spring:
     validateMigrationNaming: false
     createSchemas: false
     #initSql: CREATE IF NOT EXISTS flyway_history_schema
-    url: jdbc:mysql://10.10.12.54:3306/uorders
-    schemas: uorders
-    user: udinghuo
-    password: AgtY4Fq*AiWX
+    url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    schemas: world
+    user: root
+    password: 1234
