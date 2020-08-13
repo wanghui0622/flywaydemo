@@ -2,19 +2,29 @@ server:
   port: 8088
 
 spring:
+  application:
+    name:  dbmanage #服务名
+  profiles:
+    active: default # 配置文件的版本
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/world
-    username: root
-    password: 1222
+    url: jdbc:mysql://10.10.12.54:3306/uorders
+    username: udinghuo
+    password: AgtY4Fq*AiWX
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: validate
-    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    
+
   flyway:
     enabled: true
     baseline-on-migrate: true
-    locations: /db/migration/
     createSchemas: false
-    initSql: CREATE IF NOT EXISTS flyway_history_schema
-    schemas: flyway_history_schema,world
+    #initSql: CREATE IF NOT EXISTS flyway_history_schema
+    url: jdbc:mysql://10.10.12.54:3306/uorders
+    schemas: uorders
+    user: udinghuo
+    password: AgtY4Fq*AiWX
+
