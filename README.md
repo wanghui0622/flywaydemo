@@ -5,7 +5,7 @@ I、官网：https://flywaydb.org/
 II、关于SQL脚本
 SQL脚本默认放在./src/resources/db/migration,可以通过spring.flyway.locations修改
 SQL脚本命名规范如下：
-1、Prefix 前缀：V 代表版本迁移，U 代表撤销迁移（暂不支持），R 代表可重复迁移
+1、Prefix 前缀：V 代表版本迁移，U 代表撤销迁移（暂不支持），R 代表可重复迁移（内容发生变化后，脚本重复执行）
 2、Version 版本号：版本号通常 . 和整数组成，前缀为R的脚本文件不能存在版本号
 3、Separator 分隔符：固定由两个下划线 __ 组成
 4、Description 描述：由下划线分隔的单词组成，用于描述本次迁移的目的
