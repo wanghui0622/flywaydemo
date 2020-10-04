@@ -13,18 +13,19 @@ SQL脚本命名规范如下：
 
 III、版本管理表
 系统会自动创建flyway_schema_history用于记录所有版本演化和状态，其表结构如下(以 MySQL 为例)：
-Field	             Type	        Null	    Key	    Default
-version_rank	    int(11)	        NO	        MUL	    NULL
-installed_rank	    int(11)	        NO	        MUL	    NULL
-version	            varchar(50)	    NO	        PRI	    NULL
-description	        varchar(200)	NO		            NULL
-type	            varchar(20)	    NO		            NULL
-script	            varchar(1000)	NO		            NULL
-checksum	        int(11)         YES		            NULL
-installed_by	    varchar(100)	NO		            NULL
-installed_on	    timestamp	    NO		            CURRENT_TIMESTAMP
-execution_time	    int(11)	        NO		            NULL
-success	            tinyint(1)	    NO	        MUL	    NULL
+|Field	             |Type	     |Null     |Key	           |Default|
+| ------------- |:----------------:| -------:|:-------------:|:---------------:|
+|version_rank   |   int(11)	     |   NO    |	   MUL	 |     NULL        |
+|installed_rank |	int(11)	     |   NO    |	   MUL	 |     NULL        |
+|version	      |   varchar(50)    |   NO    |	   PRI	 |     NULL        |
+|description    |   varchar(200)   |   NO    |		 |     NULL        |
+|type	      |   varchar(20)    |   NO    |		 |     NULL        |
+|script	      |   varchar(1000)  |   NO    |		 |     NULL        |
+|checksum	      |   int(11)        |   YES   |		 |     NULL        |
+|installed_by   |   varchar(100)   |   NO    |		 |     NULL        |
+|installed_on   |   timestamp	     |   NO    |		 |CURRENT_TIMESTAMP|
+|execution_time |   int(11)	     |   NO    |		 |     NULL        |
+|success	      |   tinyint(1)     |   NO    |	   MUL	 |     NULL        |
 
 其中：
 checksum：Flyway 会给脚本计算一个 checksum 保存在数据库中，用于在之后运行过程中对比 sql 文件是否有变化，
