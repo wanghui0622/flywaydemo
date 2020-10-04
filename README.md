@@ -1,8 +1,8 @@
-flyway数据库版本控制
+#flyway数据库版本控制
 
-I、官网：https://flywaydb.org/
+##I、官网：https://flywaydb.org/
 
-II、关于SQL脚本
+##II、关于SQL脚本
 SQL脚本默认放在./src/resources/db/migration,可以通过spring.flyway.locations修改
 SQL脚本命名规范如下：
 1、Prefix 前缀：V 代表版本迁移，U 代表撤销迁移（暂不支持），R 代表可重复迁移（内容发生变化后，脚本重复执行）
@@ -11,7 +11,7 @@ SQL脚本命名规范如下：
 4、Description 描述：由下划线分隔的单词组成，用于描述本次迁移的目的
 5、Suffix 后缀：如果是 SQL 文件那么固定由 .sql 组成，如果是基于 Java 类则默认不需要后缀
 
-III、版本管理表
+##III、版本管理表
 系统会自动创建flyway_schema_history用于记录所有版本演化和状态，其表结构如下(以 MySQL 为例)：
 |Field	             |Type	     |Null     |Key	           |Default|
 | ------------- |:----------------:| -------:|:-------------:|:---------------:|
@@ -31,11 +31,11 @@ III、版本管理表
 checksum：Flyway 会给脚本计算一个 checksum 保存在数据库中，用于在之后运行过程中对比 sql 文件是否有变化，
           如果发生了变化，则会报错，也就防止了误修改脚本导致发生问题。
 
-IV、flyway事务
+##IV、flyway事务
 默认情况下，Flyway总是将整个迁移的执行封装在单个事务中。也可以设置group属性等于true，将未执行的迁移封装到一个事务中。
 对于SQL迁移，可以指定脚本配置属性executeInTransaction。
 
-V、Schema creation
+##V、Schema creation
 
 如果createSchemas设置为false，可能出现如下情况：
 `flyway.createSchemas=false
@@ -60,7 +60,7 @@ flyway.schemas=flyway_history_schema,my_schema`
 5、迁移正常进行
 6、迁移可自由控制my_schema的创建
 
-VI、Migration States（迁移状态）
+##VI、Migration States（迁移状态）
 
 1、迁移已解决或已应用。Flyway的文件系统和类路径扫描程序已检测到已解决的迁移。最初，它们是未决的。一旦对数据库执行了它们，它们就会被应用。
 2、迁移成功后，在Flyway的架构历史记录表中将其标记为成功（success）。
