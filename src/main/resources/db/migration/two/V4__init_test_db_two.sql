@@ -1,0 +1,1 @@
+INSERT INTO `user_test_two` (`name`, `age`) VALUES ('WangHui03', '33');

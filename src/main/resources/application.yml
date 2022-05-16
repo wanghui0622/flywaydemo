@@ -7,23 +7,42 @@ spring:
   profiles:
     active: default # 配置文件的版本
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    one:
+      url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: 1234
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    two:
+      url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: 1234
+      driver-class-name: com.mysql.cj.jdbc.Driver
 #  jpa:
 #    hibernate:
 #    naming:
 #      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 #  show-sql: true
 
+
   flyway:
-    enabled: true
+    # 是否启用flyway
+    enabled: false
+    # 编码格式，默认配置UTF-8
+    encoding: UTF-8
+    # 迁移SQL脚本存放路径，默认配置db/migration
+#    locations: classpath:db/migration/one
+    # 迁移SQL脚本文件名的前缀，默认V
+    sql-migration-prefix: V
+    # 迁移SQL脚本文件名称的分隔符，默认2个下划线
+    sql-migration-separator: __
+    # 迁移时是否进行校验，默认true
+    validate-on-migrate: true
+    # 当迁移发现数据库非空且存在没有非元数据的表时，自动执行基准迁移，新建schema_version表。
     baseline-on-migrate: true
     validateMigrationNaming: false
     createSchemas: false
     #initSql: CREATE IF NOT EXISTS flyway_history_schema
-    url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    schemas: world
-    user: root
-    password: 1234
+#    url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+#    schemas: world
+#    user: root
+#    password: 1234
