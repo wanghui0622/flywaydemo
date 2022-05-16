@@ -65,18 +65,4 @@
 		</plugins>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>jjsrv-dev</id>
-			<url>http://nexus.jjweb.cn:8081/repository/maven-public/</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>jjsrv-dev</id>
-			<url>http://nexus.jjweb.cn:8081/repository/maven-public/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 </project>
